@@ -205,5 +205,5 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " Wrap the quickfix window
 autocmd FileType qf setlocal wrap linebreak
 
-" ========================================================================
-"
+" q closes the buffer for help files
+autocmd Filetype help nnoremap <buffer> q :q<CR>
