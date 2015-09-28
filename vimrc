@@ -24,7 +24,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree.git'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-rake'
@@ -70,9 +69,8 @@ map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
+nmap <c-s> <esc>:w<CR>
+imap <c-s> <esc>:w<CR>
 
 inoremap <Tab> <C-P>
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
