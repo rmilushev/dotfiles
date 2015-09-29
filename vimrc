@@ -27,6 +27,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-rake'
+Plugin 'bling/vim-airline'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
