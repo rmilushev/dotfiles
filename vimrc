@@ -70,10 +70,8 @@ map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-nmap <c-s> <esc>:w<CR>
-imap <c-s> <esc>:w<CR>
-
-inoremap <Tab> <C-P>
+nmap <C-w> <esc>:w<CR>
+imap <C-w> <esc>:w<CR>
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
