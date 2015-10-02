@@ -28,6 +28,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-rake'
 Plugin 'bling/vim-airline'
+Plugin 'garbas/vim-snipmate'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
