@@ -71,8 +71,8 @@ map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-nmap <C-w> <esc>:w<CR>
-imap <C-w> <esc>:w<CR>
+" nmap <C-s> <esc>:w<CR>
+" imap <C-s> <esc>:w<CR>
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
@@ -110,6 +110,9 @@ highlight PmenuSel ctermfg=black
 
 " Ignore stuff that can't be opened
 set wildignore+=tmp/**
+
+" Set statusline of fugitive
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
 " Highlight the status line
 highlight StatusLine ctermfg=blue ctermbg=yellow
