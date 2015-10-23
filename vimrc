@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 " This is the Vundle package, which can be found on GitHub.
@@ -28,7 +28,6 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-rake'
 Plugin 'bling/vim-airline'
-Plugin 'garbas/vim-snipmate'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
