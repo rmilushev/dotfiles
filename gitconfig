@@ -315,3 +315,5 @@
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ =  \\2/' | sort
 
     pconfig = config -f .git/config
+[core]
+	editor = /usr/bin/vim
