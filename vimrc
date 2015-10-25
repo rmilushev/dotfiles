@@ -29,6 +29,7 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-rake'
 Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'scrooloose/syntastic'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
@@ -113,6 +114,15 @@ set wildignore+=tmp/**
 
 " Set statusline of fugitive
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+" Status line - syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Highlight the status line
 highlight StatusLine ctermfg=blue ctermbg=yellow
