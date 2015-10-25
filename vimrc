@@ -28,6 +28,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-rake'
 Plugin 'bling/vim-airline'
+Plugin 'elixir-lang/vim-elixir'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
@@ -44,7 +45,7 @@ colorscheme jellybeans
 syntax on
 augroup myfiletypes
   autocmd!
-  " autoindent with 2 spaces, always expand 
+  " autoindent with 2 spaces, always expand
   autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
   autocmd FileType ruby,eruby,yaml setlocal path+=lib
   autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
@@ -67,12 +68,12 @@ imap kj <esc>
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
 map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
-map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR> map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-" nmap <C-s> <esc>:w<CR>
-" imap <C-s> <esc>:w<CR>
+nmap <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
+map <Leader>c <C-_><C-_>
 set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
