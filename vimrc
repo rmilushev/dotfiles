@@ -65,7 +65,9 @@ nmap <Leader>so :source $MYVIMRC<cr>
 nmap <Leader>vi :tabe $MYVIMRC<cr>
 imap jk <esc>
 imap kj <esc>
-
+imap ± <esc>
+nmap ± <esc>
+nnoremap gb :ls<cr>:b<space>
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
 map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
@@ -123,7 +125,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_html_tidy_exec = 'tidy5'
 " Highlight the status line
 highlight StatusLine ctermfg=blue ctermbg=yellow
 
