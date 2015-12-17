@@ -10,7 +10,7 @@
        br = branch
        co = checkout
        df = diff
-       lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative    
+       lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
        new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
        tags = tag -n1 -l
        whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
