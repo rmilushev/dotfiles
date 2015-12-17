@@ -315,3 +315,4 @@
     pconfig = config -f .git/config
 [core]
   editor = /usr/bin/vim
+  autocrlf = input
