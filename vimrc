@@ -30,6 +30,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
+Plugin 'lambdatoast/elm.vim'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
