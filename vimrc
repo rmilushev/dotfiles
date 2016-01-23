@@ -66,8 +66,6 @@ nmap <Leader>so :source $MYVIMRC<cr>
 nmap <Leader>vi :tabe $MYVIMRC<cr>
 imap jk <esc>
 imap kj <esc>
-imap ± <esc>
-nmap ± <esc>
 nnoremap gb :ls<cr>:b<space>
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
