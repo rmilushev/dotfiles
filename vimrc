@@ -165,7 +165,11 @@ set noesckeys
 set ttimeout
 set ttimeoutlen=1
 
-
+" Add smart split sizes of window in focus:
+set winwidth=84
+set winheight=5
+set winminheight=5
+set winheight=999
 
 " Let's be reasonable, shall we?
 nmap k gk
