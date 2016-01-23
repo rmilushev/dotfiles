@@ -73,6 +73,12 @@ map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR> map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
 nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
+
+" Break line at the cursor (Ctrl-J):
+nnoremap <NL> i<CR><esc>
+
+" Clear the last search:
+nmap <Leader>h :nohlsearch<CR>
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 map <Leader>c <C-_><C-_>
 set history=500		" keep 500 lines of command line history
