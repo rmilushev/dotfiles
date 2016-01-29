@@ -121,7 +121,7 @@ set wildignore+=tmp/**
 " Set statusline of fugitive
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 " Status line - syntastic
-set statusline+=%#warningmsg#
+" set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
