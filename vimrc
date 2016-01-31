@@ -79,6 +79,9 @@ nnoremap <NL> i<CR><esc>
 
 " Clear the last search:
 nmap <Leader>h :nohlsearch<CR>
+
+" Search for the word under the cursor:
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 map <Leader>c <C-_><C-_>
 set history=500		" keep 500 lines of command line history
