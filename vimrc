@@ -80,8 +80,9 @@ nnoremap <NL> i<CR><esc>
 " Clear the last search:
 nmap <Leader>h :nohlsearch<CR>
 
-" Search for the word under the cursor:
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" puts the caller
+nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
+
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 map <Leader>c <C-_><C-_>
 set history=500		" keep 500 lines of command line history
@@ -117,7 +118,7 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
@@ -126,6 +127,8 @@ endif
 
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
 
 " Make the omnicomplete text readable
 highlight PmenuSel ctermfg=black
