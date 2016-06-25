@@ -32,6 +32,7 @@ Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
 Plugin 'lambdatoast/elm.vim'
+Plugin 'bronson/vim-trailing-whitespace'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
@@ -209,17 +210,6 @@ let g:CommandTMatchWindowAtTop=1
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
 set timeoutlen=500
-
-" Remove trailing whitespace on save for ruby files.
-au BufWritePre *.rb :%s/\s\+$//e
-
-function! OpenFactoryFile()
-  if filereadable("test/factories.rb")
-    execute ":sp test/factories.rb"
-  else
-    execute ":sp spec/factories.rb"
-  end
-endfunction
 
 " Set gutter background to black
 highlight SignColumn ctermbg=black
