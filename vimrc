@@ -1,4 +1,5 @@
 set nocompatible
+" set keymap=bulgarian-phonetic
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
@@ -83,6 +84,10 @@ nmap <Leader>h :nohlsearch<CR>
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
+" copy to clipboard
+set clipboard^=unnamed
+" set paste
+" set go+=a
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 map <Leader>c <C-_><C-_>
 set history=500		" keep 500 lines of command line history
@@ -105,6 +110,7 @@ set noincsearch
 set ignorecase smartcase
 set laststatus=2  " Always show status line.
 set relativenumber
+set invnumber
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
 set bg=light

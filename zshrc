@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -102,3 +102,12 @@ alias ggp="git push"
 
 # git commit: ggc
 alias ggc="git commit"
+
+# start Rails as daemon
+alias railss='rails s -d'
+
+# stop Rails when daemon
+alias railsq='kill -9 $(lsof -i :3000 -t)'
+
+# reload Rails
+alias railsre='railsq && railss'
