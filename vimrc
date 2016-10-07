@@ -32,21 +32,26 @@ Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
 Plugin 'lambdatoast/elm.vim'
+Plugin 'ElmCast/elm-vim'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'DataWraith/auto_mkdir'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()            " required
 filetype plugin indent on
 
-" Use colorscjeme from nanotech
+" Boris Vian
 colorscheme jellybeans
+
+" cursorline rules
+set cursorline
 
 "==============
 " Ruby stuff
 " =============
 
-syntax on
+syntax enable
 augroup myfiletypes
   autocmd!
   " autoindent with 2 spaces, always expand
@@ -85,20 +90,24 @@ nmap <Leader>h :nohlsearch<CR>
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
+" show last inserted text
+nnoremap gV `[v`]
 " copy to clipboard
-set clipboard^=unnamed
+set clipboard=unnamed
 " set paste
 " set go+=a
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 map <Leader>c <C-_><C-_>
-set history=500		" keep 500 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+set history=500   " keep 500 lines of command line history
+set ruler    " show the cursor position all the time
+set showcmd  " display incomplete commands
 set autoindent
 set showmatch
 set nowrap
+set backup
 set backupdir=~/.tmp
 set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
+set writebackup
 set autoread
 set wmh=0
 set viminfo+=!
@@ -117,6 +126,12 @@ set autoindent " always set autoindenting on
 set bg=light
 set lazyredraw " Don't redraw screen when running macros.
 
+" Enable folding
+set foldenable
+set foldlevelstart=10  "open most folds by default
+set foldnestmax=10     " 10 nested fold max
+set foldmethod=indent  " fold based on indent level
+
 " Set the tag file search order
 set tags=./tags;
 
@@ -132,6 +147,11 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" ctrlp opens file in new buffer
+let g:ctrlp_switch_buffer = 0
+
+" ctrlp respects change of dir
+let g:ctrlp_working_path_mode = 0
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
@@ -200,12 +220,17 @@ set winheight=999
 nmap k gk
 nmap j gj
 
-" Make CtrlP use ag for listing the files:
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-let g:ctrlp_use_caching = 0
-
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
+
+" Elm format
+let g:elm_format_autosave = 1
+" Elm language
+nnoremap <leader>el :ElmEvalLine<CR>
+vnoremap <leader>es :<C-u>ElmEvalSection<CR>
+nnoremap <leader>em :ElmMakeCurrentFile<CR>
+:au BufWritePost *.elm ElmMakeFile("Main.elm")
+
 
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
@@ -248,3 +273,18 @@ autocmd FileType qf setlocal wrap linebreak
 
 " q closes the buffer for help files
 autocmd Filetype help nnoremap <buffer> q :q<CR>
+" neat bracketed paste, credits Chris Page
+if &term =~ "xterm.*"
+    let &t_ti = &t_ti . "\e[?2004h"
+    let &t_te = "\e[?2004l" . &t_te
+    function XTermPasteBegin(ret)
+        set pastetoggle=<Esc>[201~
+        set paste
+        return a:ret
+    endfunction
+    map <expr> <Esc>[200~ XTermPasteBegin("i")
+    imap <expr> <Esc>[200~ XTermPasteBegin("")
+    vmap <expr> <Esc>[200~ XTermPasteBegin("c")
+    cmap <Esc>[200~ <nop>
+    cmap <Esc>[201~ <nop>
+endif

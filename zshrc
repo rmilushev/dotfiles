@@ -111,3 +111,5 @@ alias railsq='kill -9 $(lsof -i :3000 -t)'
 
 # reload Rails
 alias railsre='railsq && railss'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
