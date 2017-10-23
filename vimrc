@@ -31,8 +31,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'ElmCast/elm-vim'
+Plugin 'elmcast/elm-vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'DataWraith/auto_mkdir'
 " Colors
@@ -156,6 +155,8 @@ let g:ctrlp_working_path_mode = 0
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
+" search for the word under cursor
+noremap <Leader>a  :Ag -Q <C-r>=expand('<cword>')<CR><CR>
 
 " Make the omnicomplete text readable
 highlight PmenuSel ctermfg=black
@@ -223,14 +224,21 @@ nmap j gj
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
 
-" Elm format
+" Elm
 let g:elm_format_autosave = 1
-" Elm language
-nnoremap <leader>el :ElmEvalLine<CR>
-vnoremap <leader>es :<C-u>ElmEvalSection<CR>
-nnoremap <leader>em :ElmMakeCurrentFile<CR>
-:au BufWritePost *.elm ElmMakeFile("Main.elm")
+let g:elm_detailed_complete = 1
+let g:elm_syntastic_show_warnings = 1
+let g:elm_format_fail_silently = 1
+let g:elm_browser_command = 'open'
+let g:elm_make_show_warnings = 1
+let g:elm_setup_keybindings = 1
 
+" Elm support deoplete neovim
+" h/t https://github.com/ElmCast/elm-vim/issues/52#issuecomment-264161975
+" let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
+" let g:deoplete#omni#functions.elm = ['elm#Complete']
+" let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
+" let g:deoplete#disable_auto_complete = 1
 
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
@@ -288,3 +296,6 @@ if &term =~ "xterm.*"
     cmap <Esc>[200~ <nop>
     cmap <Esc>[201~ <nop>
 endif
+
+" status line for fugitive plugin
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P

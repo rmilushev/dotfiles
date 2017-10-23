@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git git-flow-completion)
 
 # User configuration
 
@@ -83,9 +83,6 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
-alias e="emacsclient -t"
-alias ec="emacsclient -c"
 alias rls="bundle exec rails server"
 
 export BUNDLER_EDITOR="vim"
@@ -113,3 +110,18 @@ alias railsq='kill -9 $(lsof -i :3000 -t)'
 alias railsre='railsq && railss'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# display markdown on zsh
+rmd () {
+  pandoc $1 | lynx -stdin
+}
+PATH=$PATH:/usr/local/sbin
+
+# lines of code .rb
+alias locrb='find app -iname "*.rb" -type f -exec cat {} \;| wc -l'
+
+# list only active interface
+alias ifcact="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"

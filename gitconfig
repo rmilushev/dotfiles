@@ -1,6 +1,6 @@
 [user]
-       name = Rumen Milushev
-	email = r@vert.bg
+  name = Rumen Milushev
+  email = r@vert.bg
 [color]
        ui = true
 [alias]
@@ -14,6 +14,7 @@
        new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
        tags = tag -n1 -l
        whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+       graph = git log --graph --all --decorate --stat --date=iso
 [merge]
        tool = vimdiff
 # local user config, usernames, etc
@@ -27,8 +28,6 @@
     interactive = auto
     ui = auto
 
-[merge]
-  ff = no
 [status]
     relativePaths = true
     showUntrackedFiles = no
@@ -76,8 +75,11 @@
 [push]
    default = simple
 
+[rebase]
+  autosquash = true
+
 [branch]
-   autosetupmerge = true
+   # autosetuprebase = always
 
 [color "branch"]
   current = yellow reverse
