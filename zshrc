@@ -125,3 +125,4 @@ alias ifcact="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+export ERL_AFLAGS="-kernel shell_history enabled"
